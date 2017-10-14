@@ -1840,6 +1840,14 @@
                         // 5    Video cued
                         switch (event.data) {
                             case 0:
+                                // YouTube doesn't support loop for a single video, so mimick it.
+                                if (config.loop) {
+                                    // YouTube needs a call to `stopVideo` before playing again
+                                    instance.stopVideo();
+                                    instance.playVideo();
+                                    break;
+                                }
+
                                 plyr.media.paused = true;
                                 _triggerEvent(plyr.media, "ended");
                                 break;
