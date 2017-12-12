@@ -89,7 +89,7 @@ function createFile(filename, string) {
                 stat: {
                     size: string.length,
                 },
-            }),
+            })
         );
         this.push(null);
     };
@@ -166,7 +166,7 @@ var build = {
                                 removeDesc: true,
                             },
                         ],
-                    }),
+                    })
                 )
                 .pipe(svgstore())
                 .pipe(rename({ basename: bundle }))
@@ -265,12 +265,12 @@ gulp.task('cdn', function() {
             size({
                 showFiles: true,
                 gzip: true,
-            }),
+            })
         )
         .pipe(
             rename(function(path) {
                 path.dirname = path.dirname.replace('.', version);
-            }),
+            })
         )
         .pipe(replace(localPath, versionPath))
         .pipe(s3(aws.cdn, options.cdn));
@@ -322,14 +322,14 @@ gulp.task('symlinks', function() {
                     .pipe(
                         rename(function(path) {
                             path.dirname = path.dirname.replace('.', 'latest');
-                        }),
+                        })
                     )
                     // Upload to S3 with correct headers
                     .pipe(s3(aws.cdn, options.symlinks(version, filename)));
             }
 
             callback(null, chunk);
-        }),
+        })
     );
 });
 
@@ -343,7 +343,7 @@ gulp.task('open', function() {
     return gulp.src([paths.demo.root + 'index.html']).pipe(
         open('', {
             url: 'http://' + aws.demo.domain,
-        }),
+        })
     );
 });
 
