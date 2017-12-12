@@ -1737,6 +1737,7 @@
                     wmode: 'transparent',
                     modestbranding: 1,
                     disablekb: 1,
+                    playsinline: 1,
                     origin: '*', // https://code.google.com/p/gdata-issues/issues/detail?id=5788#c45
                 },
                 events: {
@@ -2895,6 +2896,7 @@
                     if (config.loop) {
                         plyr.media.setAttribute('loop', '');
                     }
+                    plyr.media.setAttribute('playsinline', '');
                 }
 
                 // Restore class hooks
