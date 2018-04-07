@@ -568,8 +568,8 @@ const controls = {
 
         // Update the label
         if (!utils.is.empty(value)) {
-            const label = this.elements.settings.tabs[setting].querySelector(`.${this.config.classNames.menu.value}`);
-            label.innerHTML = controls.getLabel.call(this, setting, value);
+            // const label = this.elements.settings.tabs[setting].querySelector(`.${this.config.classNames.menu.value}`);
+            // label.innerHTML = controls.getLabel.call(this, setting, value);
         }
 
         // Find the radio option

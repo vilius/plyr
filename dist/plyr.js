@@ -3423,10 +3423,10 @@ var controls = {
         }
 
         // Update the label
-        if (!utils.is.empty(value)) {
-            var label = this.elements.settings.tabs[setting].querySelector('.' + this.config.classNames.menu.value);
-            label.innerHTML = controls.getLabel.call(this, setting, value);
-        }
+        if (!utils.is.empty(value)) {}
+        // const label = this.elements.settings.tabs[setting].querySelector(`.${this.config.classNames.menu.value}`);
+        // label.innerHTML = controls.getLabel.call(this, setting, value);
+
 
         // Find the radio option
         var target = list && list.querySelector('input[value="' + value + '"]');
@@ -4070,7 +4070,7 @@ var controls = {
         // Inject controls HTML
         if (utils.is.element(container)) {
             target.appendChild(container);
-        } else {
+        } else if (container) {
             target.insertAdjacentHTML('beforeend', container);
         }
 
@@ -6528,7 +6528,7 @@ var Plyr = function () {
         }
 
         // Set config
-        this.config = utils.extend({}, defaults, options, function () {
+        this.config = utils.extend({}, defaults, options || {}, function () {
             try {
                 return JSON.parse(_this.media.getAttribute('data-plyr-config'));
             } catch (e) {
